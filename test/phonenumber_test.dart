@@ -32,6 +32,7 @@ void main() {
 
     test('look up UK as a country code', () {
       Country country = PhoneNumber.getCountry("+447891234567");
+      print(country.name);
       expect(country.name, "United Kingdom");
       expect(country.code, "GB");
       expect(country.regionCode, "");
@@ -76,6 +77,15 @@ void main() {
       expect(phoneNumber.countryISOCode, "GB");
       expect(phoneNumber.countryCode, "44");
       expect(phoneNumber.number, "7891234567");
+      expect(phoneNumber.isValidNumber(), true);
+    });
+
+    //Add test
+    test('create CG PhoneNumber from +242057009244', () {
+      PhoneNumber phoneNumber = PhoneNumber.fromCompleteNumber(completeNumber: "+242057009244");
+      expect(phoneNumber.countryISOCode, "CG");
+      expect(phoneNumber.countryCode, "242");
+      expect(phoneNumber.number, "057009244");
       expect(phoneNumber.isValidNumber(), true);
     });
 

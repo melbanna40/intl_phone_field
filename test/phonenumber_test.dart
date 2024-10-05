@@ -32,7 +32,6 @@ void main() {
 
     test('look up CD as a country code', () {
       Country country = PhoneNumber.getCountry("+243812167999");
-      print(country.code);
       expect(country.name, "Congo, The Democratic Republic of the Congo");
       expect(country.code, "CD");
       expect(country.regionCode, "");

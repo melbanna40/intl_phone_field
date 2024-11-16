@@ -60,13 +60,15 @@ class _MyAppState extends State<MyApp> {
                 ),
                 IntlPhoneField(
                   focusNode: focusNode,
+                  showDropdownIcon: false,
                   decoration: const InputDecoration(
-                    labelText: 'Phone Number',
+                    labelText: 'رقم الهاتف',
                     border: OutlineInputBorder(
                       borderSide: BorderSide(),
                     ),
                   ),
-                  languageCode: "en",
+                  languageCode: "ar",
+                  initialCountryCode: 'EG',
                   onChanged: (phone) {
                     print(phone.completeNumber);
                   },

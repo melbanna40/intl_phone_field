@@ -118,6 +118,9 @@ class IntlPhoneField extends StatefulWidget {
   /// [Decoration.enabled] property.
   final bool enabled;
 
+  /// If false, the Country change button is "disabled": it ignores taps, the [Dialog]'s
+  final bool changeCountryEnabled;
+
   /// The appearance of the keyboard.
   ///
   /// This setting is only honored on iOS devices.
@@ -284,6 +287,7 @@ class IntlPhoneField extends StatefulWidget {
     this.dropdownDecoration = const BoxDecoration(),
     this.inputFormatters,
     this.enabled = true,
+    this.changeCountryEnabled = true,
     this.keyboardAppearance,
     @Deprecated('Use searchFieldInputDecoration of PickerDialogStyle instead')
     this.searchText = 'Search country',
@@ -482,7 +486,7 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
           child: InkWell(
             borderRadius:
                 widget.dropdownDecoration.borderRadius as BorderRadius?,
-            onTap: widget.enabled ? _changeCountry : null,
+            onTap: widget.changeCountryEnabled ? _changeCountry : null,
             child: Padding(
               padding: widget.flagsButtonPadding,
               child: Row(

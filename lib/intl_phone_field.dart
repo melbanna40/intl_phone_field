@@ -259,6 +259,12 @@ class IntlPhoneField extends StatefulWidget {
   /// Divider color
   final Color dividerColor;
 
+  /// Divider color
+  final double dividerHight;
+
+  /// Divider color
+  final double dividerWidth;
+
   const IntlPhoneField({
     Key? key,
     this.formFieldKey,
@@ -310,6 +316,8 @@ class IntlPhoneField extends StatefulWidget {
     this.magnifierConfiguration,
     this.hasDivider = true,
     this.dividerColor = Colors.grey,
+    this.dividerHight = 55,
+    this.dividerWidth = 1,
   }) : super(key: key);
 
   @override
@@ -537,8 +545,8 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
                   Visibility(
                     visible: widget.hasDivider,
                     child: Container(
-                      height: 55,
-                      width: 1,
+                      height: widget.dividerHight,
+                      width: widget.dividerWidth,
                       color: widget.dividerColor,
                     ),
                   ),

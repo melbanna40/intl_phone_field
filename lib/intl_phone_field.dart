@@ -511,11 +511,29 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
                   ],
                   const SizedBox(width: 4),
                   if (widget.showCountryFlag) ...[
-                    Image.asset(
-                      'assets/flags/${_selectedCountry.code.toLowerCase()}.png',
-                      package: 'intl_phone_field',
-                      width: 32,
+                    Row(
+                      children: [
+                        Image.asset(
+                          'assets/flags/${_selectedCountry.code.toLowerCase()}.png',
+                          package: 'intl_phone_field',
+                          width: 32,
+                        ),
+                        const SizedBox(
+                          width: 4,
+                        ),
+                        Text(
+                          _selectedCountry.nameTranslations.entries
+                              .where((element) {
+                            return element.key == widget.languageCode;
+                          })
+                              .first
+                              .value,
+                          style: const TextStyle(
+                              fontSize: 16, color: Colors.black),
+                        ),
+                      ],
                     ),
+
                     const SizedBox(width: 8),
                   ],
                   Visibility(

@@ -431,7 +431,7 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
         onFieldSubmitted: widget.onSubmitted,
         magnifierConfiguration: widget.magnifierConfiguration,
         decoration: widget.decoration.copyWith(
-          prefixIcon: _buildFlagsButton(),
+          suffixIcon: _buildFlagsButton(),
           counterText: '',
         ),
         style: widget.style,
@@ -485,62 +485,56 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
   Container _buildFlagsButton() {
     return Container(
       margin: widget.flagsButtonMargin,
-      child: Directionality(
-        textDirection:
-            widget.languageCode == 'ar' ? TextDirection.rtl : TextDirection.ltr,
-        child: DecoratedBox(
-          decoration: widget.dropdownDecoration,
-          child: InkWell(
-            borderRadius:
-                widget.dropdownDecoration.borderRadius as BorderRadius?,
-            onTap: widget.changeCountryEnabled ? _changeCountry : null,
-            child: Padding(
-              padding: widget.flagsButtonPadding,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  const SizedBox(
-                    width: 4,
-                  ),
-                  if (widget.enabled &&
-                      widget.showDropdownIcon &&
-                      widget.dropdownIconPosition == IconPosition.leading) ...[
-                    widget.dropdownIcon,
-                    const SizedBox(width: 4),
-                  ],
+      child: DecoratedBox(
+        decoration: widget.dropdownDecoration,
+        child: InkWell(
+          borderRadius: widget.dropdownDecoration.borderRadius as BorderRadius?,
+          onTap: widget.changeCountryEnabled ? _changeCountry : null,
+          child: Padding(
+            padding: widget.flagsButtonPadding,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const SizedBox(
+                  width: 4,
+                ),
+                if (widget.enabled &&
+                    widget.showDropdownIcon &&
+                    widget.dropdownIconPosition == IconPosition.leading) ...[
+                  widget.dropdownIcon,
                   const SizedBox(width: 4),
-                  if (widget.showCountryFlag) ...[
-                    Row(
-                      children: [
-                        Text(
-                          _selectedCountry.flag,
-                        ),
-                        const SizedBox(
-                          width: 4,
-                        ),
-                        Text(
-                          _selectedCountry.dialCode,
-                          style: const TextStyle(
-                              fontSize: 16, color: Colors.black),
-                        ),
-                      ],
-                    ),
-
-                    const SizedBox(width: 8),
-                  ],
-                  Visibility(
-                    visible: widget.hasDivider,
-                    child: AnimatedContainer(
-                      duration: const Duration(milliseconds: 300),
-                      height: widget.dividerHight,
-                      width: widget.dividerWidth,
-                      color: widget.dividerColor,
-                    ),
+                ],
+                const SizedBox(width: 4),
+                if (widget.showCountryFlag) ...[
+                  Row(
+                    children: [
+                      Text(
+                        _selectedCountry.flag,
+                      ),
+                      const SizedBox(
+                        width: 4,
+                      ),
+                      Text(
+                        _selectedCountry.dialCode,
+                        style:
+                            const TextStyle(fontSize: 16, color: Colors.black),
+                      ),
+                    ],
                   ),
                   const SizedBox(width: 8),
                 ],
-              ),
+                Visibility(
+                  visible: widget.hasDivider,
+                  child: AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    height: widget.dividerHight,
+                    width: widget.dividerWidth,
+                    color: widget.dividerColor,
+                  ),
+                ),
+                const SizedBox(width: 8),
+              ],
             ),
           ),
         ),

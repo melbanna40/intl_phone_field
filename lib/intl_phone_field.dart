@@ -510,7 +510,13 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
                   Row(
                     children: [
                       Text(
-                        _selectedCountry.dialCode,
+                        '+${_selectedCountry.dialCode}',
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontFamily: 'SuisseIntl',
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
                       ),
                       const SizedBox(
                         width: 4,
@@ -518,7 +524,7 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
                       Image.asset(
                         'assets/flags/${_selectedCountry.code.toLowerCase()}.png',
                         package: 'intl_phone_field',
-                        width: 32,
+                        width: 24,
                       ),
                     ],
                   ),

@@ -515,7 +515,7 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
                           fontSize: 16,
                           fontFamily: 'SuisseIntl',
                           fontWeight: FontWeight.w500,
-                          color: Colors.white,
+                          color: Color(0xFF2E2E2E),
                         ),
                       ),
                       const SizedBox(

@@ -510,15 +510,15 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
                   Row(
                     children: [
                       Text(
-                        _selectedCountry.flag,
+                        _selectedCountry.dialCode,
                       ),
                       const SizedBox(
                         width: 4,
                       ),
-                      Text(
-                        _selectedCountry.dialCode,
-                        style:
-                            const TextStyle(fontSize: 16, color: Colors.black),
+                      Image.asset(
+                        'assets/flags/${_selectedCountry.code.toLowerCase()}.png',
+                        package: 'intl_phone_field',
+                        width: 32,
                       ),
                     ],
                   ),

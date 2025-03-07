@@ -509,13 +509,16 @@ class _IntlPhoneFieldState extends State<IntlPhoneField> {
                 if (widget.showCountryFlag) ...[
                   Row(
                     children: [
-                      Text(
-                        '+${_selectedCountry.dialCode}',
-                        style: const TextStyle(
-                          fontSize: 16,
-                          fontFamily: 'SuisseIntl',
-                          fontWeight: FontWeight.w500,
-                          color: Color(0xFF2E2E2E),
+                      Directionality(
+                        textDirection: TextDirection.ltr,
+                        child: Text(
+                          '+${_selectedCountry.dialCode}',
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontFamily: 'SuisseIntl',
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xFF2E2E2E),
+                          ),
                         ),
                       ),
                       const SizedBox(
